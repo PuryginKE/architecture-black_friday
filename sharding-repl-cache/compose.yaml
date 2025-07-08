@@ -34,13 +34,11 @@ services:
     image: kazhem/pymongo_api:1.0.0
     depends_on:
       - somedb
-      - redis
     ports:
       - 8080:8080
     environment:
       MONGODB_URL: "mongodb://somedb:27017"
       MONGODB_DATABASE_NAME: "somedb"
-      REDIS_URL: "redis://redis:6379"
 
   shard1:
     image: mongo:latest
@@ -135,16 +133,6 @@ services:
       interval: 5s
       start_period: 10s
 
-  redis:
-    container_name: redis
-    image: redis:latest
-    restart: always
-    ports:
-      - "6379:6379"
-    networks:
-      app-network:
-        ipv4_address: 173.17.0.13
-
 networks:
   app-network:
     driver: bridge
@@ -158,4 +146,3 @@ volumes:
   shard1_replica1-data:
   shard1_replica2-data:
   shard2-data:
-  redis_data: {}
