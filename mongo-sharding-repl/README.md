@@ -8,13 +8,31 @@
 docker compose up -d
 ```
 
-Заполняем mongodb данными
+## Как проверить
+
+Подключитесь к серверу
 
 ```shell
-./scripts/mongo-init.sh
+./scripts/service-init.sh
 ```
 
-## Как проверить
+Инициализируйте шарды и реплики
+
+```shell
+./scripts/shard-init.sh
+```
+
+Инициализируйте роутер, заполните значениями бд
+
+```shell
+./scripts/router-init.sh
+```
+
+Вызовите тест проверку
+
+```shell
+./scripts/test-init.sh
+```
 
 ### Если вы запускаете проект на локальной машине
 
